@@ -2,17 +2,17 @@
     #include<stdio.h> 
 %} 
 
-%token ident
+%token START STOP STR NUM
+%%
 
-%% 
-start: L {printf("%d\n",$$);} 
+start : START value STOP {printf("Correcto");}
+;
 
-L: E L 
-| /*epsilon*/;
-E: A L B
-| ident;
-A: '<'ident'>';
-B: '<''/'ident'>';
+value : start {printf("entra a simple_xml");} 
+| STR {printf("entra a STR");}
+| NUM {printf("entra a NUM");}
+| value start {printf("value simple_xml");}
+;
 
 %% 
 

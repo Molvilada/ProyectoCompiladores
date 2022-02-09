@@ -49,7 +49,10 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    ident = 258
+    START = 258,
+    STOP = 259,
+    STR = 260,
+    NUM = 261
   };
 #endif
 

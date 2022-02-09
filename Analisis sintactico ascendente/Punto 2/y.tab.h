@@ -49,17 +49,33 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    START = 258,
-    STOP = 259,
-    STR = 260,
-    NUM = 261
+    TK_NUM = 258,
+    TK_SEN = 259,
+    TK_COS = 260,
+    TK_TAN = 261,
+    TK_SENH = 262,
+    TK_COSH = 263,
+    TK_TANH = 264,
+    TK_SQRT = 265,
+    TK_LOG = 266,
+    TK_E = 267,
+    TK_PI = 268,
+    TK_ID = 269
   };
 #endif
 /* Tokens.  */
-#define START 258
-#define STOP 259
-#define STR 260
-#define NUM 261
+#define TK_NUM 258
+#define TK_SEN 259
+#define TK_COS 260
+#define TK_TAN 261
+#define TK_SENH 262
+#define TK_COSH 263
+#define TK_TANH 264
+#define TK_SQRT 265
+#define TK_LOG 266
+#define TK_E 267
+#define TK_PI 268
+#define TK_ID 269
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

@@ -34,8 +34,8 @@
 /* Undocumented macros, especially those whose name start with YY_,
    are private implementation details.  Do not rely on them.  */
 
-#ifndef YY_YY_Y_TAB_H_INCLUDED
-# define YY_YY_Y_TAB_H_INCLUDED
+#ifndef YY_YY_EXPR_TAB_H_INCLUDED
+# define YY_YY_EXPR_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -49,17 +49,20 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    START = 258,
-    STOP = 259,
-    STR = 260,
-    NUM = 261
+    TK_NUM = 258,
+    TK_SEN = 259,
+    TK_COS = 260,
+    TK_TAN = 261,
+    TK_SENH = 262,
+    TK_COSH = 263,
+    TK_TANH = 264,
+    TK_SQRT = 265,
+    TK_LOG = 266,
+    TK_E = 267,
+    TK_PI = 268,
+    TK_ID = 269
   };
 #endif
-/* Tokens.  */
-#define START 258
-#define STOP 259
-#define STR 260
-#define NUM 261
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -73,4 +76,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+#endif /* !YY_YY_EXPR_TAB_H_INCLUDED  */

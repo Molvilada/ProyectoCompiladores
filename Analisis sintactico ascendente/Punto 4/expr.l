@@ -5,22 +5,9 @@
 
 %% 
 
-[<] {return "<"} 
-
-[>] {return ">"}
-
-[/] {return "/"}
-
-[A-Za-z]+ {return ident}
-
-[/]     {return '/';} 
-
-[\t]+   ;
-
-" "     { }
-
-[\n]    {return 0;} 
-
-.       {return yytext[0]; } 
+[<[a-z]+>] { return START; }
+[<\/[a-z]+>] { return STOP; }
+[0-9]+ { return NUM; }
+[^><]+ { return STR; }
 
 %% 
