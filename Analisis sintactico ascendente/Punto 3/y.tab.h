@@ -49,33 +49,19 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    TK_NUM = 258,
-    TK_SEN = 259,
-    TK_COS = 260,
-    TK_TAN = 261,
-    TK_SENH = 262,
-    TK_COSH = 263,
-    TK_TANH = 264,
-    TK_SQRT = 265,
-    TK_LOG = 266,
-    TK_E = 267,
-    TK_PI = 268,
-    TK_ID = 269
+    id = 258,
+    if = 259,
+    else = 260,
+    then = 261,
+    inst = 262
   };
 #endif
 /* Tokens.  */
-#define TK_NUM 258
-#define TK_SEN 259
-#define TK_COS 260
-#define TK_TAN 261
-#define TK_SENH 262
-#define TK_COSH 263
-#define TK_TANH 264
-#define TK_SQRT 265
-#define TK_LOG 266
-#define TK_E 267
-#define TK_PI 268
-#define TK_ID 269
+#define id 258
+#define if 259
+#define else 260
+#define then 261
+#define inst 262
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

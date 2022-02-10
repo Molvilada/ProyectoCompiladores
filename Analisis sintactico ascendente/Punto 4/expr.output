@@ -1,120 +1,103 @@
-State 1 conflicts: 1 shift/reduce
-
-
 Grammar
 
-    0 $accept: simple_xml $end
+    0 $accept: start $end
 
-    1 simple_xml: START value STOP
+    1 start: TK_START value TK_STOP
 
-    2 value: simple_xml
-    3      | STR
-    4      | NUM
-    5      | value simple_xml
-    6      | %empty
+    2 value: start
+    3      | TK_STR
+    4      | value start
 
 
 Terminals, with rules where they appear
 
     $end (0) 0
     error (256)
-    START (258) 1
-    STOP (259) 1
-    STR (260) 3
-    NUM (261) 4
+    TK_START (258) 1
+    TK_STOP (259) 1
+    TK_STR (260) 3
 
 
 Nonterminals, with rules where they appear
 
-    $accept (7)
+    $accept (6)
         on left: 0
-    simple_xml (8)
+    start (7)
         on left: 1
-        on right: 0 2 5
-    value (9)
-        on left: 2 3 4 5 6
-        on right: 1 5
+        on right: 0 2 4
+    value (8)
+        on left: 2 3 4
+        on right: 1 4
 
 
 State 0
 
-    0 $accept: . simple_xml $end
+    0 $accept: . start $end
 
-    START  shift, and go to state 1
+    TK_START  shift, and go to state 1
 
-    simple_xml  go to state 2
+    start  go to state 2
 
 
 State 1
 
-    1 simple_xml: START . value STOP
+    1 start: TK_START . value TK_STOP
 
-    START  shift, and go to state 1
-    STR    shift, and go to state 3
-    NUM    shift, and go to state 4
+    TK_START  shift, and go to state 1
+    TK_STR    shift, and go to state 3
 
-    START     [reduce using rule 6 (value)]
-    $default  reduce using rule 6 (value)
-
-    simple_xml  go to state 5
-    value       go to state 6
+    start  go to state 4
+    value  go to state 5
 
 
 State 2
 
-    0 $accept: simple_xml . $end
+    0 $accept: start . $end
 
-    $end  shift, and go to state 7
+    $end  shift, and go to state 6
 
 
 State 3
 
-    3 value: STR .
+    3 value: TK_STR .
 
     $default  reduce using rule 3 (value)
 
 
 State 4
 
-    4 value: NUM .
-
-    $default  reduce using rule 4 (value)
-
-
-State 5
-
-    2 value: simple_xml .
+    2 value: start .
 
     $default  reduce using rule 2 (value)
 
 
+State 5
+
+    1 start: TK_START value . TK_STOP
+    4 value: value . start
+
+    TK_START  shift, and go to state 1
+    TK_STOP   shift, and go to state 7
+
+    start  go to state 8
+
+
 State 6
 
-    1 simple_xml: START value . STOP
-    5 value: value . simple_xml
-
-    START  shift, and go to state 1
-    STOP   shift, and go to state 8
-
-    simple_xml  go to state 9
-
-
-State 7
-
-    0 $accept: simple_xml $end .
+    0 $accept: start $end .
 
     $default  accept
 
 
+State 7
+
+    1 start: TK_START value TK_STOP .
+
+    $default  reduce using rule 1 (start)
+
+
 State 8
 
-    1 simple_xml: START value STOP .
+    4 value: value start .
 
-    $default  reduce using rule 1 (simple_xml)
-
-
-State 9
-
-    5 value: value simple_xml .
-
-    $default  reduce using rule 5 (value)
+    $default  reduce using rule 4 (value)

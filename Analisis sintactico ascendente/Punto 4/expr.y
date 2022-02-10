@@ -1,17 +1,33 @@
 %{
     #include<stdio.h> 
+    #include<string.h>
 %} 
 
-%token START STOP STR NUM
+%union{
+    char *str;
+}
+
+%token <str>TK_START <str>TK_STOP <str>TK_STR
+
+%type <str> xml start
 %%
 
-start : START value STOP {printf("Correcto");}
-;
 
-value : start {printf("entra a simple_xml");} 
-| STR {printf("entra a STR");}
-| NUM {printf("entra a NUM");}
-| value start {printf("value simple_xml");}
+
+start : xml  {printf("Sucess \n");} 
+
+
+
+
+xml: TK_START exp TK_STOP   {   
+                                if(strcmp($1, $3)  != 0){
+                                    yyerror("error");
+                                }     
+                            };
+
+exp : start
+| TK_STR
+| exp start
 ;
 
 %% 

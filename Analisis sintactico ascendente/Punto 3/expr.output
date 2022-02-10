@@ -1,3 +1,6 @@
+State 10 conflicts: 1 shift/reduce
+
+
 Grammar
 
     0 $accept: start $end
@@ -132,6 +135,7 @@ State 10
 
     "else"  shift, and go to state 11
 
+    "else"    [reduce using rule 4 (S)]
     $default  reduce using rule 4 (S)
 
 

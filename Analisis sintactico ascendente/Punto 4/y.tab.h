@@ -49,21 +49,28 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    START = 258,
-    STOP = 259,
-    STR = 260,
-    NUM = 261
+    TK_START = 258,
+    TK_STOP = 259,
+    TK_STR = 260
   };
 #endif
 /* Tokens.  */
-#define START 258
-#define STOP 259
-#define STR 260
-#define NUM 261
+#define TK_START 258
+#define TK_STOP 259
+#define TK_STR 260
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 6 "expr.y"
+
+    char *str;
+
+#line 71 "y.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
